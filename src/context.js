@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import items from "./data";
-import Client from "./Contentful";
+// import Client from "./Contentful";
 
 const RoomContext = React.createContext();
 
@@ -19,7 +19,7 @@ export default class RoomProvider extends Component {
     minSize: 0,
     maxSize: 0,
     breakfast: false,
-    pets: false
+    pets: false,
   };
 
   // getData = async () => {
@@ -51,10 +51,10 @@ export default class RoomProvider extends Component {
   componentDidMount() {
     // this.getData();
     let rooms = this.formatData(items);
-    let featuredRooms = rooms.filter(room => room.featured === true);
+    let featuredRooms = rooms.filter((room) => room.featured === true);
     //
-    let maxPrice = Math.max(...rooms.map(item => item.price));
-    let maxSize = Math.max(...rooms.map(item => item.size));
+    let maxPrice = Math.max(...rooms.map((item) => item.price));
+    let maxSize = Math.max(...rooms.map((item) => item.size));
     this.setState({
       rooms,
       featuredRooms,
@@ -63,26 +63,26 @@ export default class RoomProvider extends Component {
       //
       price: maxPrice,
       maxPrice,
-      maxSize
+      maxSize,
     });
   }
 
   formatData(items) {
-    let tempItems = items.map(item => {
+    let tempItems = items.map((item) => {
       let id = item.sys.id;
-      let images = item.fields.images.map(image => image.fields.file.url);
+      let images = item.fields.images.map((image) => image.fields.file.url);
 
       let room = { ...item.fields, images, id };
       return room;
     });
     return tempItems;
   }
-  getRoom = slug => {
+  getRoom = (slug) => {
     let tempRooms = [...this.state.rooms];
-    const room = tempRooms.find(room => room.slug === slug);
+    const room = tempRooms.find((room) => room.slug === slug);
     return room;
   };
-  handleChange = event => {
+  handleChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -90,7 +90,7 @@ export default class RoomProvider extends Component {
 
     this.setState(
       {
-        [name]: value
+        [name]: value,
       },
       this.filterRooms
     );
@@ -104,7 +104,7 @@ export default class RoomProvider extends Component {
       minSize,
       maxSize,
       breakfast,
-      pets
+      pets,
     } = this.state;
 
     let tempRooms = [...rooms];
@@ -114,28 +114,28 @@ export default class RoomProvider extends Component {
     price = parseInt(price);
     // filter by type
     if (type !== "all") {
-      tempRooms = tempRooms.filter(room => room.type === type);
+      tempRooms = tempRooms.filter((room) => room.type === type);
     }
     // filter by capacity
     if (capacity !== 1) {
-      tempRooms = tempRooms.filter(room => room.capacity >= capacity);
+      tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
     }
     // filter by price
-    tempRooms = tempRooms.filter(room => room.price <= price);
+    tempRooms = tempRooms.filter((room) => room.price <= price);
     //filter by size
     tempRooms = tempRooms.filter(
-      room => room.size >= minSize && room.size <= maxSize
+      (room) => room.size >= minSize && room.size <= maxSize
     );
     //filter by breakfast
     if (breakfast) {
-      tempRooms = tempRooms.filter(room => room.breakfast === true);
+      tempRooms = tempRooms.filter((room) => room.breakfast === true);
     }
     //filter by pets
     if (pets) {
-      tempRooms = tempRooms.filter(room => room.pets === true);
+      tempRooms = tempRooms.filter((room) => room.pets === true);
     }
     this.setState({
-      sortedRooms: tempRooms
+      sortedRooms: tempRooms,
     });
   };
   render() {
@@ -144,7 +144,7 @@ export default class RoomProvider extends Component {
         value={{
           ...this.state,
           getRoom: this.getRoom,
-          handleChange: this.handleChange
+          handleChange: this.handleChange,
         }}
       >
         {this.props.children}
@@ -160,7 +160,7 @@ export function withRoomConsumer(Component) {
   return function ConsumerWrapper(props) {
     return (
       <RoomConsumer>
-        {value => <Component {...props} context={value} />}
+        {(value) => <Component {...props} context={value} />}
       </RoomConsumer>
     );
   };
