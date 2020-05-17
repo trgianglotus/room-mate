@@ -13,6 +13,7 @@
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
+  --olive: #123464;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -235,9 +236,10 @@ h6 {
 /* services */
 .services {
   padding: 5rem 0;
+  color: var(--offWhite);
 }
 .services {
-  background: var(--darkGrey);
+  background: var(--olive);
   text-align: center;
 }
 .services-center {
