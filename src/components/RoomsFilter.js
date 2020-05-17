@@ -4,7 +4,7 @@ import { RoomContext } from "../context";
 import Title from "./Title";
 // get all unique values
 const getUnique = (items, value) => {
-  return [...new Set(items.map(item => item[value]))];
+  return [...new Set(items.map((item) => item[value]))];
 };
 
 const RoomsFilter = ({ rooms }) => {
@@ -19,14 +19,14 @@ const RoomsFilter = ({ rooms }) => {
     maxPrice,
     minSize,
     maxSize,
-    breakfast,
-    pets
+    Party,
+    pets,
   } = context;
 
   // get unique types
   let types = getUnique(rooms, "type");
   // add all
-  types = ["all", ...types];
+  types = ["All", ...types];
   // map to jsx
   types = types.map((item, index) => (
     <option key={index} value={item}>
@@ -113,12 +113,12 @@ const RoomsFilter = ({ rooms }) => {
           <div className="single-extra">
             <input
               type="checkbox"
-              name="breakfast"
-              id="breakfast"
-              checked={breakfast}
+              name="Party"
+              id="Party"
+              checked={Party}
               onChange={handleChange}
             />
-            <label htmlFor="breakfast">breakfast</label>
+            <label htmlFor="Party">Party</label>
           </div>
           <div className="single-extra">
             <input
@@ -127,7 +127,7 @@ const RoomsFilter = ({ rooms }) => {
               checked={pets}
               onChange={handleChange}
             />
-            <label htmlFor="breakfast">pets</label>
+            <label htmlFor="Party">pets</label>
           </div>
         </div>
         {/* end of extras type */}

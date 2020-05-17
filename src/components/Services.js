@@ -6,36 +6,30 @@ export default class Services extends Component {
     services: [
       {
         icon: <FaCocktail />,
-        title: "Free Cocktails",
+        title: "Rent Your Way",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?",
       },
       {
         icon: <FaHiking />,
-        title: "Endless Hiking",
+        title: "Sublet Safely",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?",
       },
       {
         icon: <FaShuttleVan />,
-        title: "Free Shuttle",
+        title: "Rent Easier",
         info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?",
       },
-      {
-        icon: <FaBeer />,
-        title: "Strongest Beer",
-        info:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias molestias eius libero?"
-      }
-    ]
+    ],
   };
   render() {
     return (
       <section className="services">
         <Title title="services" />
         <div className="services-center">
-          {this.state.services.map(item => {
+          {this.state.services.map((item) => {
             return (
               <article key={`item-${item.title}`} className="service">
                 <span>{item.icon}</span>

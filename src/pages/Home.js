@@ -9,11 +9,12 @@ const home = () => {
     <>
       <Hero>
         <Banner
-          title="luxurious rooms"
-          subtitle="deluxe rooms starting at $299"
+          title="Room"
+          subtitle="Rent rooms and find roommates
+in our verified community"
         >
           <Link to="/rooms" className="btn-primary">
-            our rooms
+            Explore rooms
           </Link>
         </Banner>
       </Hero>

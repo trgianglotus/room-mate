@@ -11,14 +11,14 @@ export default class RoomProvider extends Component {
     featuredRooms: [],
     loading: true,
     //
-    type: "all",
+    type: "All",
     capacity: 1,
     price: 0,
     minPrice: 0,
     maxPrice: 0,
     minSize: 0,
     maxSize: 0,
-    breakfast: false,
+    Party: false,
     pets: false,
   };
 
@@ -103,7 +103,7 @@ export default class RoomProvider extends Component {
       price,
       minSize,
       maxSize,
-      breakfast,
+      Party,
       pets,
     } = this.state;
 
@@ -113,7 +113,7 @@ export default class RoomProvider extends Component {
     capacity = parseInt(capacity);
     price = parseInt(price);
     // filter by type
-    if (type !== "all") {
+    if (type !== "All") {
       tempRooms = tempRooms.filter((room) => room.type === type);
     }
     // filter by capacity
@@ -126,9 +126,9 @@ export default class RoomProvider extends Component {
     tempRooms = tempRooms.filter(
       (room) => room.size >= minSize && room.size <= maxSize
     );
-    //filter by breakfast
-    if (breakfast) {
-      tempRooms = tempRooms.filter((room) => room.breakfast === true);
+    //filter by Party
+    if (Party) {
+      tempRooms = tempRooms.filter((room) => room.Party === true);
     }
     //filter by pets
     if (pets) {

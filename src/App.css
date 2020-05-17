@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 :root {
-  --primaryColor: #af9a7d;
+  --primaryColor: #f09659;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -59,7 +62,7 @@ h6 {
   letter-spacing: var(--mainSpacing);
   color: var(--mainBlack);
   background: var(--primaryColor);
-  padding: 0.4rem 0.9rem;
+  padding: 0.8rem 2rem;
   border: 3px solid var(--primaryColor);
   transition: var(--mainTransition);
   text-transform: uppercase;
@@ -94,7 +97,7 @@ h6 {
   left: 0;
   width: 100%;
   padding: 0.75rem 2rem;
-  background: var(--offWhite);
+  background: white;
   z-index: 1;
 }
 .nav-header {
@@ -120,12 +123,13 @@ h6 {
 .nav-links a {
   display: block;
   text-decoration: none;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   color: var(--mainBlack);
   transition: var(--mainTransition);
   text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: auto;
   letter-spacing: var(--mainSpacing);
 }
 .nav-links a:hover {
@@ -159,7 +163,7 @@ h6 {
 .defaultHero,
 .roomsHero {
   min-height: calc(100vh - 66px);
-  background: url("./images/defaultBcg.jpeg") center/cover no-repeat;
+  background: url("./images/cozy-room-1.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

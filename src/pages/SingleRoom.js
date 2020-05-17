@@ -12,7 +12,7 @@ export default class SingleRoom extends Component {
     console.log(this.props);
     this.state = {
       slug: this.props.match.params.slug,
-      defaultBcg: defaultBcg
+      defaultBcg: defaultBcg,
     };
   }
   static contextType = RoomContext;
@@ -41,9 +41,9 @@ export default class SingleRoom extends Component {
       size,
       price,
       extras,
-      breakfast,
+      Party,
       pets,
-      images
+      images,
     } = room;
     const [main, ...defaultImages] = images;
     console.log(defaultImages);
@@ -77,7 +77,7 @@ export default class SingleRoom extends Component {
                 {capacity > 1 ? `${capacity} people` : `${capacity} person`}
               </h6>
               <h6>{pets ? "pets allowed" : "no pets allowed"}</h6>
-              <h6>{breakfast && "free breakfast included"}</h6>
+              <h6>{Party && "Party Allowed"}</h6>
             </article>
           </div>
         </section>
